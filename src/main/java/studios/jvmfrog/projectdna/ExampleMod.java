@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import studios.jvmfrog.projectdna.entity.cow.RegisterCowVariants;
 import studios.jvmfrog.projectdna.items.Blood;
 
 import org.slf4j.Logger;
@@ -15,8 +16,6 @@ public class ExampleMod implements ModInitializer {
     // That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("projectdna");
 
-    public static final Item BLOOD_ITEM = new Blood(null);
-
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -24,7 +23,7 @@ public class ExampleMod implements ModInitializer {
         // Proceed with mild caution.
 
         LOGGER.info("Hello Fabric world!");
-    
-        Registry.register(Registry.ITEM, new Identifier("projectdna", "blood"), BLOOD_ITEM);
+
+        new RegisterCowVariants()
     }
 }
